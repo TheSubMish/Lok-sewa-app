@@ -88,11 +88,11 @@ passport.use(new GoogleStrategy({
 ));
 
 app.get("/", (req, res) => {
-    if(req.isAuthenticated()){
+    //if(req.isAuthenticated()){
         res.render("index",{pageTitle: "Home", islog: "Log-Out"})
-    } else {
-        res.render("index",{pageTitle: "Home", islog: "Log-In"})
-    }
+    //} else {
+      //  res.render("index",{pageTitle: "Home", islog: "Log-In"})
+    //}
 });
 
 app.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
@@ -140,24 +140,24 @@ app.post("/teachCourse", (req, res) => {
 
 // show all courses 
 app.get("/courses", (req, res) => {
-    if (req.isAuthenticated()) {
+    //if (req.isAuthenticated()) {
         Course.find({}, (err, foundCourse) => {
             if (!err) {
                 res.render("course", { pageTitle: "Courses", islog: "Log-Out", courses: foundCourse });
             }
         });
-    } else {
-        res.redirect("/Log-In");
-    }
+    //} else {
+      //  res.redirect("/Log-In");
+    //}
 });
 
 // show individual course 
 app.get("/courses/:courseName", (req, res) => {
-    if(req.isAuthenticated()){
+    //if(req.isAuthenticated()){
         oneCourse.getCourse(req, res, Course);
-    } else {
-        res.redirect("/Log-In")
-    }
+    //} else {
+      //  res.redirect("/Log-In")
+    //}
 });
 
 app.post("/courses/:courseName", (req, res) => {
@@ -165,11 +165,11 @@ app.post("/courses/:courseName", (req, res) => {
 });
 
 app.get("/contact", (req, res) => {
-    if(req.isAuthenticated()){
+    //if(req.isAuthenticated()){
         res.render("contact",{pageTitle: "Contact", islog: "Log-Out"})
-    } else {
-        res.render("contact",{pageTitle: "Contact", islog: "Log-In"})
-    }
+    //} else {
+      //  res.render("contact",{pageTitle: "Contact", islog: "Log-In"})
+    //}
 })
 
 app.listen(3000, () => {
