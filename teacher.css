@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    color: #545A5C;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.company-name {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: #f5fbfd;
+    box-shadow: 0px 5px 20px #cfcfcf;
+}
+
+.grid-1 {
+    background-color: #f5fbfd;
+}
+
+.hamburger {
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #545A5C;
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.menu {
+    position: fixed;
+    left: -100%;
+    height: 100vh;
+    gap: 0;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    background-color: #f5fbfd;
+}
+
+.menu li {
+    margin: 16px 0;
+    width: 100%;
+    font-size: 20px;
+    padding: 20px;
+    transition: 0.7s ease;
+}
+
+.menu li:hover {
+    background-color: #D0D9DB;
+}
+
+.menu.active {
+    left: 0;
+}
+
+.logout a {
+    color: #b27fff;
+    transition: 0.7s ease;
+}
+
+.logout:hover a {
+    color: #5400d1 !important;
+}
+
+.grid-2 {
+    padding: 50px 0px;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid-2 table th{
+    padding: 10px;
+    border: 1px solid black;
+    background-color: #b27fff;
+    color: white;
+    font-size: 15px;
+}
+
+.grid-2 tr td {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+}
+
+.grid-2 tr:nth-child(even) {
+    background-color: #f2f5f5;
+}
+
+@media (min-width: 800px) {
+    .container {
+        display: grid;
+        grid-template-columns: 300px auto;
+    }
+
+    .grid-1 {
+        width: 300px;
+        box-shadow: none;
+    }
+
+    .company-name {
+        align-items: center;
+        box-shadow: none;
+        width: 300px;
+    }
+
+    .menu {
+        display: block;
+        gap: 10px;
+        left: 0;
+        width: 300px;
+    }
+
+    .menu li {
+        margin: 0;
+        font-size: 18px;
+        padding: 20px;
+        margin: 10px 0;
+        transition: 0.7s ease;
+    }
+
+    .menu a {
+        font-size: 25px;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    table {
+        margin: 0px 100px;
+    }
+}

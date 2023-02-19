@@ -1,0 +1,69 @@
+<a href="/">Home</a>
+
+<form action="/teachCourse" method="post">
+    <div class="course">
+        <input type="text" name="courseTitle" id="course-title">
+        <textarea name="courseBody" id="course-body" cols="30" rows="10"></textarea>
+    </div>
+    <br>
+    <div class="testQuestions">
+        <div class="test">
+            <input type="text" placeholder="Question" name="question">
+            <input type="text" placeholder="Option 1" name="option1" class="options">
+            <input type="text" placeholder="Option 2" name="option2" class="options">
+            <input type="text" placeholder="Option 3" name="option3" class="options">
+            <input type="text" placeholder="Option 4" name="option4" class="options">
+            <input type="text" placeholder="Correct Answer" name="corAns">
+        </div>
+    </div>
+    <input type="button" value="Add question" id="addQue">
+    <button type="submit">Submit</button>
+</form>
+<script>
+    document.getElementById("addQue").addEventListener("click", () => {
+        let test = document.createElement("div");
+        test.className = "test";
+
+        let question = document.createElement("input");
+        question.type = "text";
+        question.placeholder = "Question";
+        question.name = "question";
+        test.appendChild(question);
+
+        let option1 = document.createElement("input");
+        option1.type = "text";
+        option1.placeholder = "Option 1";
+        option1.name = "option1";
+        option1.className = "options"
+        test.appendChild(option1);
+
+        let option2 = document.createElement("input");
+        option2.type = "text";
+        option2.placeholder = "Option 2";
+        option2.name = "option2";
+        option2.className = "options"
+        test.appendChild(option2);
+
+        let option3 = document.createElement("input");
+        option3.type = "text";
+        option3.placeholder = "Option 3";
+        option3.name = "option3";
+        option3.className = "options"
+        test.appendChild(option3);
+
+        let option4 = document.createElement("input");
+        option4.type = "text";
+        option4.placeholder = "Option 4";
+        option4.name = "option4";
+        option4.className = "options"
+        test.appendChild(option4);
+
+        let corAns = document.createElement("input");
+        corAns.type = "text";
+        corAns.placeholder = "Correct Answer";
+        corAns.name = "corAns";
+        test.appendChild(corAns);
+
+        document.querySelector(".testQuestions").appendChild(test)
+    });
+</script>

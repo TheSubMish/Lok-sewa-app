@@ -1,0 +1,42 @@
+<%- include("partials/header") -%>
+
+<div class="course-container">
+    <div class="one-course">
+        <div>
+            <h1> <%= course.courseTitle %></h1>
+        </div>
+        <div class="course-body"><%= course.course %></div>
+    </div>
+    <div class="test">
+        <div>
+            <h1>Test:</h1>
+        </div>
+        <div>
+            <form action="/courses/<%= course.courseTitle %>" method="post">
+                <% for(let i=0; i< course.question.length; i++){ %>
+                    <div class="question">
+                        <div>
+                            <p class="que"><%= course.question[i] %></p>
+                        </div>
+                        <div>
+                            <% for(let j=0;j< course.options.length;j++){ %>
+                                <div class="option">
+                                    <input type="radio" name="option<%=i%>" value="<%= course.options[j][i] %>">
+                                    <label for="option<%=i%>"><%= course.options[j][i] %></label>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                <% } %>
+                <div>
+                    <button type="submit" class="sub-btn">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="score">
+            <p class="testScore">Score: <span class="result"> <%= score  %> </span></p>
+        </div>
+    </div>
+</div>
+
+<%- include("partials/footer") -%>
