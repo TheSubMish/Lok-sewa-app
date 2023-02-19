@@ -78,7 +78,7 @@ passport.deserializeUser((id, done) => {
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/course"
+    callbackURL: "https://nepalpadhcha.onrender.com/auth/google/course"
 },
     function (accessToken, refreshToken, profile, cb) {
         User.findOrCreate({ username: profile.emails[0].value, googleId: profile.id }, function (err, user) {
